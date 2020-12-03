@@ -1,4 +1,5 @@
 import copy
+import random
 
 class Choice():
     def __init__(self, move, value, depth):
@@ -46,7 +47,15 @@ class InvinciBot():
             return max_choice
         else:
             return min_choice 
-
     def select_move(self, board):
-        choice = self.minimax(board, True, self.player, 0)
-        return choice.move
+       candidates = board.get_legal_moves()
+       return random.choice(candidates)
+    
+    def select_move(self, board):
+        ran = random.randint(0,9)
+        if(ran < 2):
+            select_move(self, board)
+            return choice.move
+        else:
+            choice = self.minimax(board, True, self.player, 0)
+            return choice.move
